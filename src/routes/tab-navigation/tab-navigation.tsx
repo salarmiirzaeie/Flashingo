@@ -11,6 +11,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import Icon from '../../components/icon/Icon';
 import ProfileIcon from '../../components/icon/ProfileIcon';
 import BarIcon from '../../components/icon/BarIcon';
+import Bar from '../../pages/main/Bar/Bar';
 const Tab = createBottomTabNavigator<tabNavigationParamList>();
 
 const TabNavigation = () => {
@@ -36,10 +37,9 @@ const TabNavigation = () => {
             // <Ionicons name="home" color={focused ? '#00f' : '#458'} size={25} />
             <BarIcon />
           ),
-          header: () => <HomeHeader />,
         }}
         name="Bar"
-        component={Home}
+        component={Bar}
       />
       <Tab.Screen
         options={{
