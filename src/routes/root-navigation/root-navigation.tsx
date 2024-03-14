@@ -15,8 +15,9 @@ const Stack = createStackNavigator<rootStackParamList>();
 
 const RootNavigation = () => {
   const [splash, setSplash] = useState(true);
-  const isAuth = useSelector((state: RootState) => state.authorization.isAuth);
-  console.log(isAuth);
+  const isSettedInitialSteps = useSelector(
+    (state: RootState) => state.initialSteps.isSettedInitialSteps,
+  );
   useEffect(() => {
     setTimeout(() => {
       setSplash(false);
@@ -28,7 +29,7 @@ const RootNavigation = () => {
     return (
       <NavigationContainer>
         <Stack.Navigator screenOptions={{headerShown: false}}>
-          {isAuth ? (
+          {isSettedInitialSteps ? (
             <Stack.Screen name="Main" component={MainNavigation} />
           ) : (
             <Stack.Screen name="Auth" component={AuthNavigation} />

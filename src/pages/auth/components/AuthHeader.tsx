@@ -8,10 +8,16 @@ import {
 import React from 'react';
 import {height, width} from '../../../config/consts';
 import Icon from '../../../components/icon/Icon';
-import {authScreenProps} from '../../../routes/auth-navigation/auth-navigationType';
+import {
+  HomeScreenNavigationProp,
+  authScreenProps,
+} from '../../../routes/auth-navigation/auth-navigationType';
 import {useNavigation} from '@react-navigation/native';
-
-const AuthHeader = ({navigation}: authScreenProps) => {
+interface IAuthHeader {
+  navigation: HomeScreenNavigationProp;
+  progress: number;
+}
+const AuthHeader: React.FC<IAuthHeader> = ({navigation, progress}) => {
   return (
     <View
       flexDirection="row"
@@ -22,7 +28,7 @@ const AuthHeader = ({navigation}: authScreenProps) => {
       <Pressable p={'$2'} onPress={() => navigation.goBack()}>
         <Icon name="back" color="grey" />
       </Pressable>
-      <Progress value={40} bg="$light" w={'90%'} size="md">
+      <Progress value={progress} bg="$light" w={'90%'} size="md">
         <ProgressFilledTrack bg="$primary" />
       </Progress>
     </View>

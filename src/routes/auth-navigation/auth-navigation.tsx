@@ -8,6 +8,8 @@ import StartPage from '../../pages/auth/Start/StartPage';
 import SelectLanguage from '../../pages/auth/language/SelectLanguage';
 import SelectLevel from '../../pages/auth/language/SelectLevel';
 import SelectLessonTime from '../../pages/auth/language/SelectLessonTime';
+import TimeToCreateProfile from '../../pages/auth/Start/TimeToCreateProfile';
+import SignUp from '../../pages/auth/signup/SignUp';
 const Stack = createStackNavigator<authStackParamList>();
 
 const AuthNavigation = () => {
@@ -18,7 +20,12 @@ const AuthNavigation = () => {
       <Stack.Screen name="SelectLanguage" component={SelectLanguage} />
       <Stack.Screen name="SelectLevel" component={SelectLevel} />
       <Stack.Screen name="SelectLessonTime" component={SelectLessonTime} />
+      <Stack.Screen
+        name="TimeToCreateProfile"
+        component={TimeToCreateProfile}
+      />
       <Stack.Screen name="Login" component={Login} />
+      <Stack.Screen name="SignUp" component={SignUp} />
     </Stack.Navigator>
   );
 };

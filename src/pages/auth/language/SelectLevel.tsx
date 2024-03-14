@@ -9,27 +9,37 @@ import {FlatList} from 'react-native';
 import PrimaryBtn from '../../../components/button/PrimaryBtn';
 import BarProgress from '../../../components/progressbar/BarProgress';
 import {authScreenProps} from '../../../routes/auth-navigation/auth-navigationType';
+import {useDispatch} from 'react-redux';
+import {AppDispatch} from '../../../stores/store';
+import {setLevel} from '../../../stores/actions/initialStepsAction';
 interface ILanguage {
   icon: ReactNode;
   title: string;
+  key: 1 | 2 | 3 | 4;
 }
+
 const SelectLevel = ({navigation}: authScreenProps) => {
+  const dispatch = useDispatch<AppDispatch>();
+  const [selected, setSelected] = React.useState<1 | 2 | 3 | 4 | null>(null);
+
   const lenguages: ILanguage[] = [
-    {title: 'I know nothing', icon: <BarProgress progress={25} />},
-    {title: 'I know a little', icon: <BarProgress progress={50} />},
+    {title: 'I know nothing', icon: <BarProgress progress={25} />, key: 1},
+    {title: 'I know a little', icon: <BarProgress progress={50} />, key: 2},
     {
       title: 'I can have simple conversation ',
       icon: <BarProgress progress={75} />,
+      key: 3,
     },
     {
       title: 'I am intermediate or higher',
       icon: <BarProgress progress={100} />,
+      key: 4,
     },
   ];
   return (
     <View flex={1} bg="$white">
       <StatusBar backgroundColor={'$white'} />
-      <AuthHeader navigation={navigation} />
+      <AuthHeader progress={60} navigation={navigation} />
       <View px={'$4'} flex={1}>
         <View flex={0.3}>
           <Speaker h={height / 10} message="How much German do you know?" />
@@ -41,7 +51,8 @@ const SelectLevel = ({navigation}: authScreenProps) => {
             keyExtractor={(item, index) => index.toString()}
             renderItem={({item}) => (
               <Card
-                onPress={() => console.log(item)}
+                isSelected={selected === item.key}
+                onPress={() => setSelected(item.key)}
                 icon={item.icon}
                 title={item.title}
               />
@@ -51,7 +62,11 @@ const SelectLevel = ({navigation}: authScreenProps) => {
         <View flex={0.15}>
           <PrimaryBtn
             title="Continue"
-            onPress={() => navigation.navigate('SelectLessonTime')}
+            disabled={selected === null}
+            onPress={() => {
+              dispatch(setLevel(selected));
+              navigation.navigate('SelectLessonTime');
+            }}
           />
         </View>
       </View>

@@ -8,19 +8,25 @@ import FlagImg from '../../../components/image/FlagImg';
 import {FlatList} from 'react-native';
 import PrimaryBtn from '../../../components/button/PrimaryBtn';
 import {authScreenProps} from '../../../routes/auth-navigation/auth-navigationType';
+import {useDispatch} from 'react-redux';
+import {AppDispatch} from '../../../stores/store';
+import {setLearnLanguage} from '../../../stores/actions/initialStepsAction';
 interface ILanguage {
   icon: string;
   title: string;
+  key: 'en' | 'de';
 }
 const SelectLanguage = ({navigation}: authScreenProps) => {
+  const dispatch = useDispatch<AppDispatch>();
   const lenguages: ILanguage[] = [
-    {title: 'English', icon: 'us'},
-    {title: 'Germany', icon: 'de'},
+    {title: 'English', icon: 'us', key: 'en'},
+    {title: 'Germany', icon: 'de', key: 'de'},
   ];
+  const [selected, setSelected] = React.useState<'en' | 'de' | null>(null);
   return (
     <View flex={1} bg="$white">
       <StatusBar backgroundColor={'$white'} />
-      <AuthHeader navigation={navigation} />
+      <AuthHeader progress={30} navigation={navigation} />
       <View px={'$4'} flex={1}>
         <View flex={0.3}>
           <Speaker h={height / 12} message="What would you like to learn?" />
@@ -32,7 +38,8 @@ const SelectLanguage = ({navigation}: authScreenProps) => {
             keyExtractor={(item, index) => index.toString()}
             renderItem={({item}) => (
               <Card
-                onPress={() => console.log(item)}
+                isSelected={selected === item.key}
+                onPress={() => setSelected(item.key)}
                 icon={<FlagImg name={item.icon} />}
                 title={item.title}
               />
@@ -42,7 +49,11 @@ const SelectLanguage = ({navigation}: authScreenProps) => {
         <View flex={0.15}>
           <PrimaryBtn
             title="Continue"
-            onPress={() => navigation.navigate('SelectLevel')}
+            disabled={selected === null ? true : false}
+            onPress={() => {
+              dispatch(setLearnLanguage(selected));
+              navigation.navigate('SelectLevel');
+            }}
           />
         </View>
       </View>

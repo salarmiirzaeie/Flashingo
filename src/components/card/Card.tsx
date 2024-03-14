@@ -6,8 +6,15 @@ interface IProps {
   icon?: ReactNode;
   title: string;
   titleRight?: string;
+  isSelected?: boolean;
 }
-const Card: React.FC<IProps> = ({onPress, icon, title, titleRight}) => {
+const Card: React.FC<IProps> = ({
+  onPress,
+  icon,
+  title,
+  titleRight,
+  isSelected,
+}) => {
   return (
     <Pressable
       p={'$2'}
@@ -16,10 +23,10 @@ const Card: React.FC<IProps> = ({onPress, icon, title, titleRight}) => {
       h={height / 13}
       justifyContent={icon ? 'flex-start' : 'space-between'}
       mb={8}
-      bg="$white"
+      bg={isSelected ? '$lightblue' : '$white'}
       alignItems="center"
       borderWidth={0.5}
-      borderColor="$light"
+      borderColor={isSelected ? '$info' : '$light'}
       shadowColor="#000"
       shadowOffset={{
         width: 0,

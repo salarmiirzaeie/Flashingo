@@ -3,34 +3,38 @@ import React from 'react';
 import PrimaryBtn from '../../../components/button/PrimaryBtn';
 import SecondaryBtn from '../../../components/button/SecondaryBtn';
 import {authScreenProps} from '../../../routes/auth-navigation/auth-navigationType';
-const StartPage = ({navigation}: authScreenProps) => {
+import {useDispatch} from 'react-redux';
+import {AppDispatch} from '../../../stores/store';
+import {setIsSettedInitialSteps} from '../../../stores/actions/initialStepsAction';
+const TimeToCreateProfile = ({navigation}: authScreenProps) => {
+  const dispatch = useDispatch<AppDispatch>();
   return (
     <View p={'$6'} flex={1} bg="$white">
       <StatusBar backgroundColor={'$white'} />
       <View justifyContent="center" alignItems="center" flex={1}>
         <Image
           alt="Flashingo"
-          source={require('../../../assets/img/HelloLogo.png')}
-          style={{width: 200, height: 200, marginLeft: 40}}
+          source={require('../../../assets/img/walkingLogo.png')}
+          style={{width: 200, height: 200}}
         />
-        <Heading size="2xl" color="$primary">
-          Flashingo
+        <Heading size="xl" color="$black">
+          Time to create your profile
         </Heading>
         <Text size="lg" textAlign="center">
-          The free, fun and effective way to learn a language
+          create profile to save your progress and continue learning for free
         </Text>
       </View>
       <View justifyContent="space-between" flex={0.15}>
         <PrimaryBtn
-          title="Get Started"
+          title="Create Profile"
           onPress={() => {
-            navigation.navigate('SelectLanguage');
+            navigation.navigate('SignUp');
           }}
         />
         <SecondaryBtn
-          title="I already have an account"
+          title="Later"
           onPress={() => {
-            navigation.navigate('Login');
+            dispatch(setIsSettedInitialSteps(true));
           }}
         />
       </View>
@@ -38,4 +42,4 @@ const StartPage = ({navigation}: authScreenProps) => {
   );
 };
 
-export default StartPage;
+export default TimeToCreateProfile;

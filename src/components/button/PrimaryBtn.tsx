@@ -4,10 +4,12 @@ import {View} from '@gluestack-ui/themed';
 interface IPropsType {
   title: string;
   onPress: () => void;
+  disabled?: boolean;
 }
-const PrimaryBtn: React.FC<IPropsType> = ({title, onPress}) => {
+const PrimaryBtn: React.FC<IPropsType> = ({title, onPress, disabled}) => {
   return (
     <Button
+      disabled={disabled}
       rounded={'$xl'}
       shadowColor="#000"
       shadowOffset={{
@@ -18,8 +20,8 @@ const PrimaryBtn: React.FC<IPropsType> = ({title, onPress}) => {
       shadowRadius={3.84}
       elevation={5}
       onPress={onPress}
-      bg="$primary">
-      <ButtonText color="$white">{title}</ButtonText>
+      bg={disabled ? '$light' : '$primary'}>
+      <ButtonText color={disabled ? '$gray' : '$white'}>{title}</ButtonText>
     </Button>
   );
 };

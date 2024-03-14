@@ -43,7 +43,7 @@ const TabNavigation = () => {
       />
       <Tab.Screen
         options={{
-          headerShown: true,
+          headerShown: false,
           tabBarIcon: ({focused, color}) => (
             // <Ionicons name="home" color={focused ? '#00f' : '#458'} size={25} />
             <ProfileIcon />

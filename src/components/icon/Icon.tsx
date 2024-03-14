@@ -29,6 +29,14 @@ const Icon: FC<Props> = ({name, color, size}) => {
           size={size ? size : 25}
         />
       );
+    case 'user':
+      return (
+        <AntDesign
+          name="user"
+          color={color ? color : 'white'}
+          size={size ? size : 25}
+        />
+      );
 
     default:
       return <Ionicons name="home" color={color ? color : 'white'} size={25} />;
