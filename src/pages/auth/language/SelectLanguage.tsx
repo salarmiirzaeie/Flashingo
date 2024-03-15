@@ -1,6 +1,6 @@
 import {StatusBar, Text, View} from '@gluestack-ui/themed';
 import React from 'react';
-import AuthHeader from '../components/AuthHeader';
+import ProgressHeader from '../components/ProgressHeader';
 import Speaker from '../../../components/popover/Speaker';
 import {height} from '../../../config/consts';
 import Card from '../../../components/card/Card';
@@ -26,7 +26,7 @@ const SelectLanguage = ({navigation}: authScreenProps) => {
   return (
     <View flex={1} bg="$white">
       <StatusBar backgroundColor={'$white'} />
-      <AuthHeader progress={30} navigation={navigation} />
+      <ProgressHeader progress={30} navigation={navigation} />
       <View px={'$4'} flex={1}>
         <View flex={0.3}>
           <Speaker h={height / 12} message="What would you like to learn?" />

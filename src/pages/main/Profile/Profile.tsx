@@ -3,6 +3,7 @@ import {
   Divider,
   Heading,
   Image,
+  Pressable,
   SafeAreaView,
   ScrollView,
   SettingsIcon,
@@ -21,8 +22,14 @@ import FireIcon from '../../../components/icon/FireIcon';
 import DiamondIcon from '../../../components/icon/DiamondIcon';
 import MedalIcon from '../../../components/icon/MedalIcon';
 import AcheivementsCard from './components/AcheivementsCard';
+import AirPlaneIcon from '../../../components/icon/AirPlaneIcon';
+import BookIcon from '../../../components/icon/BookIcon';
+import PuzzleIcon from '../../../components/icon/PuzzleIcon';
+import CarIcon from '../../../components/icon/CarIcon';
+import WatchIcon from '../../../components/icon/WatchIcon';
+import {HomeScreenProps} from '../../../routes/main-navigation/main-navigationType';
 
-const Profile = () => {
+const Profile = ({navigation}: HomeScreenProps) => {
   const isAuth = useSelector((state: RootState) => state.authorization.isAuth);
   return (
     <SafeAreaView flex={1}>
@@ -39,7 +46,9 @@ const Profile = () => {
               px={'$4'}
               top={0}
               position="absolute">
-              <SettingsIcon size="xl" color="$white" />
+              <Pressable onPress={() => navigation.navigate('Settings')}>
+                <SettingsIcon size="xl" color="$white" />
+              </Pressable>
             </View>
           </View>
           <View bg="$white" w="100%" p={'$4'}>
@@ -85,27 +94,45 @@ const Profile = () => {
               />
             </View>
           </View>
-          <View h={height / 4} bg="$white" p={'$4'}>
+          <View h={height / 3.2} bg="$white" p={'$4'}>
             <Heading color="$black">Acheivements</Heading>
             <View
               borderWidth={'$1'}
               borderColor="$light"
               p={'$2'}
               flex={1}
-              flexDirection="row"
-              justifyContent="space-between"
               rounded={'$xl'}>
-              <AcheivementsCard color="$info" title="LEVEL4" />
-              <AcheivementsCard color="$primary" title="LEVEL5" />
-              <AcheivementsCard color="$success" title="LEVEL6" />
-              <AcheivementsCard color="$warning" title="LEVEL7" />
+              <View
+                mb={'$2'}
+                flexDirection="row"
+                flex={1}
+                justifyContent="space-between">
+                <AcheivementsCard
+                  icon={<AirPlaneIcon />}
+                  color="$info"
+                  title="LEVEL4"
+                />
+                <AcheivementsCard
+                  icon={<PuzzleIcon />}
+                  color="$gray"
+                  title="LEVEL5"
+                />
+                <AcheivementsCard
+                  icon={<CarIcon />}
+                  color="$success"
+                  title="LEVEL6"
+                />
+                <AcheivementsCard
+                  icon={<WatchIcon />}
+                  color="$primary"
+                  title="LEVEL7"
+                />
+              </View>
+              <Divider bg="$light" />
+              <View p={'$2'} alignItems="center">
+                <Text>View 7 more</Text>
+              </View>
             </View>
-            {/* <View
-           
-              borderWidth={'$1'}
-              borderColor="$light">
-              <Text>View 7 more</Text>
-            </View> */}
           </View>
         </ScrollView>
       </View>

@@ -1,6 +1,6 @@
 import {StatusBar, Text, View} from '@gluestack-ui/themed';
 import React, {ReactNode} from 'react';
-import AuthHeader from '../components/AuthHeader';
+import ProgressHeader from '../components/ProgressHeader';
 import Speaker from '../../../components/popover/Speaker';
 import {height} from '../../../config/consts';
 import Card from '../../../components/card/Card';
@@ -39,7 +39,7 @@ const SelectLevel = ({navigation}: authScreenProps) => {
   return (
     <View flex={1} bg="$white">
       <StatusBar backgroundColor={'$white'} />
-      <AuthHeader progress={60} navigation={navigation} />
+      <ProgressHeader progress={60} navigation={navigation} />
       <View px={'$4'} flex={1}>
         <View flex={0.3}>
           <Speaker h={height / 10} message="How much German do you know?" />

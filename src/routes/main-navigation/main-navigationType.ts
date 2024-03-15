@@ -7,6 +7,13 @@ import {tabNavigationParamList} from '../tab-navigation/tab-navigationType';
 export type mainStackParamList = {
   TabNavigation: undefined;
   Learn: undefined;
+  Settings: undefined;
+  Lesson: {
+    id: number;
+  };
+  LevelDetails: {
+    id: number;
+  };
 };
 
 export type HomeScreenNavigationProp = StackNavigationProp<

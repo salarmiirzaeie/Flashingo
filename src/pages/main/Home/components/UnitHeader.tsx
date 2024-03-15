@@ -3,8 +3,10 @@ import React from 'react';
 import {height} from '../../../../config/consts';
 import Icon from '../../../../components/icon/Icon';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import {HomeScreenProps} from '../../../../routes/main-navigation/main-navigationType';
 
-const UnitHeader = () => {
+const UnitHeader = ({navigation}: HomeScreenProps) => {
   return (
     <View
       h={height / 10}
@@ -20,14 +22,20 @@ const UnitHeader = () => {
         <Text color="$white">Use Basic Phrases</Text>
       </View>
       <Button
+        onPress={() =>
+          navigation.navigate('LevelDetails', {
+            id: 1,
+          })
+        }
         w="$12"
         h="$12"
         size="lg"
+        rounded={'$xl'}
         borderColor="$border"
         borderWidth={'$1'}>
         <ButtonIcon
-          as={MaterialIcons}
-          name="event-note"
+          as={MaterialCommunityIcons}
+          name="information"
           size={'xl'}
           color="$white"
         />

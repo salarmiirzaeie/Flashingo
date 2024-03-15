@@ -12,9 +12,20 @@ const AcheivementsCard: React.FC<IAcheivementsCard> = ({
   color,
 }) => {
   return (
-    <View flex={0.22} rounded={'$xl'} h={'$full'} mx={'$1'} bg={color}>
+    <View
+      flex={0.22}
+      justifyContent="space-between"
+      p={'$2'}
+      py={'$6'}
+      alignItems="center"
+      rounded={'$xl'}
+      h={'$full'}
+      mx={'$1'}
+      bg={color}>
       {icon && icon}
-      <Text>{title}</Text>
+      <Text color="$white" size="sm">
+        {title}
+      </Text>
     </View>
   );
 };

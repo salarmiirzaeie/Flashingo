@@ -21,7 +21,7 @@ const StatisticsCard: React.FC<IStatisticsCard> = ({icon, title, value}) => {
         <Text color="$black" bold>
           {value}
         </Text>
-        <Text color="$light">{title}</Text>
+        <Text color="$gray">{title}</Text>
       </View>
     </View>
   );

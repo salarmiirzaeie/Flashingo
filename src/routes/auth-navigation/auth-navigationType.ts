@@ -9,10 +9,10 @@ export type authStackParamList = {
   SelectLessonTime: undefined;
   TimeToCreateProfile: undefined;
 };
-export type HomeScreenNavigationProp = StackNavigationProp<
+export type AuthScreenNavigationProp = StackNavigationProp<
   authStackParamList,
   'Start'
 >;
 export interface authScreenProps {
-  navigation: HomeScreenNavigationProp;
+  navigation: AuthScreenNavigationProp;
 }

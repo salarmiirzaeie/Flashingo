@@ -12,8 +12,9 @@ import LessonButton from './components/LessonButton';
 import {height} from '../../../config/consts';
 import {FlexAlignType} from 'react-native';
 import {FavouriteIcon} from '@gluestack-ui/themed';
+import {HomeScreenProps} from '../../../routes/main-navigation/main-navigationType';
 
-const Home = () => {
+const Home = ({navigation}: HomeScreenProps) => {
   const alignTypes: FlexAlignType[] = ['flex-start', 'center', 'flex-end'];
 
   const lessons: {
@@ -39,7 +40,7 @@ const Home = () => {
   return (
     <ScrollView bg="$white">
       <StatusBar backgroundColor={'$primary'} />
-      <UnitHeader />
+      <UnitHeader navigation={navigation} />
       <View p={'$16'} justifyContent="space-between">
         {lessons.map((item, index) => {
           const alignSelfType = alignTypes[customSequence(index)];
@@ -49,7 +50,7 @@ const Home = () => {
               icon={item.icon}
               status={item.status}
               key={item.id}
-              onPress={() => null}
+              onPress={() => navigation.navigate('Lesson', {id: item.id})}
               alignSelf={alignSelfType}
             />
           );

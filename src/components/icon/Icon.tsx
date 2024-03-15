@@ -2,6 +2,8 @@ import {View, Text} from 'react-native';
 import React, {FC} from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import HomeIcon from './HomeIcon';
 interface Props {
@@ -33,6 +35,14 @@ const Icon: FC<Props> = ({name, color, size}) => {
       return (
         <AntDesign
           name="user"
+          color={color ? color : 'white'}
+          size={size ? size : 25}
+        />
+      );
+    case 'logout':
+      return (
+        <MaterialCommunityIcons
+          name="logout"
           color={color ? color : 'white'}
           size={size ? size : 25}
         />
