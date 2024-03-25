@@ -14,8 +14,8 @@ const CompleteProfileAlert = () => {
       my={'$4'}
       bg={'$info'}
       p={'$6'}>
-      <View flex={0.6} flexDirection="row">
-        <View flex={0.3} alignItems="flex-start">
+      <View flex={0.6} flexDirection="row-reverse">
+        <View flex={0.3} alignItems="flex-end">
           <View
             rounded={'$full'}
             borderWidth={2}
@@ -31,10 +31,10 @@ const CompleteProfileAlert = () => {
         </View>
         <View flex={0.7}>
           <Text color="$white" size="lg" bold>
-            Complete Your Profile
+            پروفایل خود را تکمیل کنید
           </Text>
           <Text color="$white" size="sm">
-            Complete a few missing steps to have a great profile
+            چند گام کوچک را تکمیل کنید تا یک پروفایل عالی داشته باشید.
           </Text>
         </View>
       </View>
@@ -50,7 +50,7 @@ const CompleteProfileAlert = () => {
           elevation={5}
           rounded={'$xl'}
           bg="$white">
-          <ButtonText color="$info">GET STARTED</ButtonText>
+          <ButtonText color="$info">بزن بریم</ButtonText>
         </Button>
       </View>
     </View>

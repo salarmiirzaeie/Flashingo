@@ -10,6 +10,7 @@ import SelectLevel from '../../pages/auth/language/SelectLevel';
 import SelectLessonTime from '../../pages/auth/language/SelectLessonTime';
 import TimeToCreateProfile from '../../pages/auth/Start/TimeToCreateProfile';
 import SignUp from '../../pages/auth/signup/SignUp';
+import VerifyOtp from '../../pages/auth/signup/VerifyOtp';
 const Stack = createStackNavigator<authStackParamList>();
 
 const AuthNavigation = () => {
@@ -25,7 +26,32 @@ const AuthNavigation = () => {
         component={TimeToCreateProfile}
       />
       <Stack.Screen name="Login" component={Login} />
-      <Stack.Screen name="SignUp" component={SignUp} />
+      <Stack.Screen
+        name="SignUp"
+        options={{
+          headerShown: true,
+          headerTitleAlign: 'center',
+          headerTitleStyle: {color: 'gray'},
+          headerStyle: {
+            borderBottomColor: 'lightgray',
+            borderBottomWidth: 1,
+          },
+        }}
+        component={SignUp}
+      />
+      <Stack.Screen
+        name="VerifyOtp"
+        options={{
+          headerShown: true,
+          headerTitleAlign: 'center',
+          headerTitleStyle: {color: 'gray'},
+          headerStyle: {
+            borderBottomColor: 'lightgray',
+            borderBottomWidth: 1,
+          },
+        }}
+        component={VerifyOtp}
+      />
     </Stack.Navigator>
   );
 };

@@ -8,6 +8,7 @@ export type authStackParamList = {
   SelectLevel: undefined;
   SelectLessonTime: undefined;
   TimeToCreateProfile: undefined;
+  VerifyOtp: undefined;
 };
 export type AuthScreenNavigationProp = StackNavigationProp<
   authStackParamList,

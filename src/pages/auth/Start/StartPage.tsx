@@ -13,24 +13,24 @@ const StartPage = ({navigation}: authScreenProps) => {
           source={require('../../../assets/img/HelloLogo.png')}
           style={{width: 200, height: 200, marginLeft: 40}}
         />
-        <Heading size="2xl" color="$primary">
-          Flashingo
-        </Heading>
-        <Text size="lg" textAlign="center">
-          The free, fun and effective way to learn a language
+        <Text fontFamily="negar" m={'$4'} size="4xl" color="$primary">
+          فلشینگو
+        </Text>
+        <Text size="xl" textAlign="center">
+          آسان ترین و مؤثرترین راه برای آموزش زبان
         </Text>
       </View>
       <View justifyContent="space-between" flex={0.15}>
         <PrimaryBtn
-          title="Get Started"
+          title="شروع"
           onPress={() => {
             navigation.navigate('SelectLanguage');
           }}
         />
         <SecondaryBtn
-          title="I already have an account"
+          title="قبلا ثبت نام کرده ام"
           onPress={() => {
-            navigation.navigate('Login');
+            navigation.navigate('SignUp');
           }}
         />
       </View>

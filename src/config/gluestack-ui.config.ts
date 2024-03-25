@@ -48,7 +48,7 @@ export const gluestackUIConfig = createConfig({
       success: '#4CAF50',
 
       dark: '#000000',
-      lightgray: '#D3D3D3',
+      lightgray: '#F5F5F5',
       darkgray: '#808080',
       skyblue: '#87CEEB',
       darkblue: '#00008B',
@@ -169,9 +169,9 @@ export const gluestackUIConfig = createConfig({
       extraBlack: '950',
     },
     fonts: {
-      heading: undefined,
-      body: undefined,
-      mono: undefined,
+      heading: 'nazanin',
+      body: 'nazanin',
+      mono: 'nazanin',
     },
     fontSizes: {
       '2xs': 10,

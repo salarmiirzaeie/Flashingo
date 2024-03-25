@@ -18,21 +18,21 @@ const TimeToCreateProfile = ({navigation}: authScreenProps) => {
           style={{width: 200, height: 200}}
         />
         <Heading size="xl" color="$black">
-          Time to create your profile
+          حساب کاربری خودتو بساز
         </Heading>
         <Text size="lg" textAlign="center">
-          create profile to save your progress and continue learning for free
+          برای ذخیره پیشرفت و ادامه یادگیری رایگان، حساب کاربری خودتو بساز
         </Text>
       </View>
       <View justifyContent="space-between" flex={0.15}>
         <PrimaryBtn
-          title="Create Profile"
+          title="ایجاد حساب کاربری"
           onPress={() => {
             navigation.navigate('SignUp');
           }}
         />
         <SecondaryBtn
-          title="Later"
+          title="بعدا می سازم"
           onPress={() => {
             dispatch(setIsSettedInitialSteps(true));
           }}

@@ -38,7 +38,7 @@ const Profile = ({navigation}: HomeScreenProps) => {
         <ScrollView>
           <View h={height / 4} bg="$gray">
             <View
-              flexDirection="row"
+              flexDirection="row-reverse"
               h={height / 13}
               w="100%"
               alignItems="center"
@@ -54,21 +54,27 @@ const Profile = ({navigation}: HomeScreenProps) => {
           <View bg="$white" w="100%" p={'$4'}>
             <View
               w={'$full'}
-              flexDirection="row"
+              flexDirection="row-reverse"
               justifyContent="space-between">
               <Text color="$black" size="xl" bold>
                 Salar
               </Text>
               <FlagImg name="us" />
             </View>
-            <Text color="$gray">salar95628</Text>
-            <Text color="$gray">Joined March 2022</Text>
+            <Text textAlign="right" color="$gray">
+              salar95628
+            </Text>
+            <Text textAlign="right" color="$gray">
+              تاریخ عضویت :فروردین ۱۳۹۹{' '}
+            </Text>
           </View>
           <Divider bg="$light" />
           {!isAuth && <CompleteProfileAlert />}
 
           <View h={height / 4} bg="$white" p={'$4'}>
-            <Heading color="$black">Statistics</Heading>
+            <Heading textAlign="right" color="$black">
+              آمار
+            </Heading>
             <View flexDirection="row" justifyContent="space-between" flex={0.5}>
               <StatisticsCard
                 icon={<FireIcon />}
@@ -95,7 +101,9 @@ const Profile = ({navigation}: HomeScreenProps) => {
             </View>
           </View>
           <View h={height / 3.2} bg="$white" p={'$4'}>
-            <Heading color="$black">Acheivements</Heading>
+            <Heading textAlign="right" color="$black">
+              دستاوردها
+            </Heading>
             <View
               borderWidth={'$1'}
               borderColor="$light"
@@ -130,7 +138,7 @@ const Profile = ({navigation}: HomeScreenProps) => {
               </View>
               <Divider bg="$light" />
               <View p={'$2'} alignItems="center">
-                <Text>View 7 more</Text>
+                <Text>7 مورد دیگر</Text>
               </View>
             </View>
           </View>

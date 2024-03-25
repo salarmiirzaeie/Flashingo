@@ -19,8 +19,8 @@ interface ILanguage {
 const SelectLanguage = ({navigation}: authScreenProps) => {
   const dispatch = useDispatch<AppDispatch>();
   const lenguages: ILanguage[] = [
-    {title: 'English', icon: 'us', key: 'en'},
-    {title: 'Germany', icon: 'de', key: 'de'},
+    {title: 'انگلیسی', icon: 'us', key: 'en'},
+    {title: 'آلمانی', icon: 'de', key: 'de'},
   ];
   const [selected, setSelected] = React.useState<'en' | 'de' | null>(null);
   return (
@@ -29,7 +29,7 @@ const SelectLanguage = ({navigation}: authScreenProps) => {
       <ProgressHeader progress={30} navigation={navigation} />
       <View px={'$4'} flex={1}>
         <View flex={0.3}>
-          <Speaker h={height / 12} message="What would you like to learn?" />
+          <Speaker h={height / 12} message="چی میخوای یادبگیری؟" />
         </View>
         <View flex={1}>
           <FlatList
@@ -48,7 +48,7 @@ const SelectLanguage = ({navigation}: authScreenProps) => {
         </View>
         <View flex={0.15}>
           <PrimaryBtn
-            title="Continue"
+            title="ادامه"
             disabled={selected === null ? true : false}
             onPress={() => {
               dispatch(setLearnLanguage(selected));

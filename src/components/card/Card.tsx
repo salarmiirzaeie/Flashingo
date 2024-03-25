@@ -35,9 +35,12 @@ const Card: React.FC<IProps> = ({
       shadowOpacity={0.25}
       shadowRadius={3.84}
       elevation={2}
-      flexDirection="row"
+      flexDirection="row-reverse"
       onPress={onPress}>
       {icon && icon}
+      <Text m={'$2'} color="$black" fontSize="$lg" fontFamily="body">
+        {titleRight && titleRight}
+      </Text>
       <Text
         mx={'$2'}
         color="$black"
@@ -45,9 +48,6 @@ const Card: React.FC<IProps> = ({
         fontWeight="bold"
         fontFamily="body">
         {title}
-      </Text>
-      <Text m={'$2'} color="$black" fontSize="$lg" fontFamily="body">
-        {titleRight && titleRight}
       </Text>
     </Pressable>
   );

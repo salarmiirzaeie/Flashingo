@@ -19,7 +19,7 @@ interface Props {
 }
 const Speaker: React.FC<Props> = ({w, h, message}) => {
   return (
-    <View flex={1} flexDirection="row" alignItems="center">
+    <View flex={1} flexDirection="row-reverse" alignItems="center">
       <Image
         alt="Flashingo"
         source={require('../../assets/img/writeLogo.png')}

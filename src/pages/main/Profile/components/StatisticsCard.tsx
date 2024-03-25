@@ -14,14 +14,16 @@ const StatisticsCard: React.FC<IStatisticsCard> = ({icon, title, value}) => {
       m={'$1.5'}
       borderWidth={'$1'}
       p={'$1.5'}
-      flexDirection="row"
+      flexDirection="row-reverse"
       rounded={'$xl'}>
       {icon}
       <View ml={'$1'}>
-        <Text color="$black" bold>
+        <Text textAlign="right" color="$black" bold>
           {value}
         </Text>
-        <Text color="$gray">{title}</Text>
+        <Text textAlign="right" color="$gray">
+          {title}
+        </Text>
       </View>
     </View>
   );

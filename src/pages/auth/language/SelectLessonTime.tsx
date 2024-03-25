@@ -22,10 +22,10 @@ const SelectLessonTime = ({navigation}: authScreenProps) => {
   const dispatch = useDispatch<AppDispatch>();
   const [selected, setSelected] = React.useState<1 | 2 | 3 | 4 | null>(null);
   const lenguages: ILanguage[] = [
-    {title: '5 min / day', title2: 'Casual', key: 1},
-    {title: '10 min / day', title2: 'Regular', key: 2},
-    {title: '15 min / day', title2: 'Serious', key: 3},
-    {title: '20 min / day', title2: 'Intense', key: 4},
+    {title: '5 دقیقه / روزانه', title2: 'کم', key: 1},
+    {title: '10 دقیقه / روزانه', title2: 'منظم', key: 2},
+    {title: '15 دقیقه / روزانه', title2: 'جدی', key: 3},
+    {title: '20 دقیقه / روزانه', title2: 'خیلی جدی ام', key: 4},
   ];
   return (
     <View flex={1} bg="$white">
@@ -33,7 +33,7 @@ const SelectLessonTime = ({navigation}: authScreenProps) => {
       <ProgressHeader progress={90} navigation={navigation} />
       <View px={'$4'} flex={1}>
         <View flex={0.3}>
-          <Speaker h={height / 10} message="What is daily your lesson time?" />
+          <Speaker h={height / 10} message="روزانه چقدر زمان میخوای بگذاری؟" />
         </View>
         <View flex={1}>
           <FlatList
@@ -52,7 +52,7 @@ const SelectLessonTime = ({navigation}: authScreenProps) => {
         </View>
         <View flex={0.15}>
           <PrimaryBtn
-            title="Continue"
+            title="ادامه"
             disabled={selected === null}
             onPress={() => {
               dispatch(setLessonTime(selected));

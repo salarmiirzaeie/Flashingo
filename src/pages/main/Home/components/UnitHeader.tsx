@@ -14,12 +14,14 @@ const UnitHeader = ({navigation}: HomeScreenProps) => {
       px={'$4'}
       justifyContent="space-between"
       alignItems="center"
-      flexDirection="row">
+      flexDirection="row-reverse">
       <View>
-        <Text color="$white" bold>
-          Basic
+        <Text textAlign="right" color="$white" bold>
+          پایه
         </Text>
-        <Text color="$white">Use Basic Phrases</Text>
+        <Text textAlign="right" color="$white">
+          استفاده از عبارات اساسی
+        </Text>
       </View>
       <Button
         onPress={() =>

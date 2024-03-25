@@ -1,0 +1,17 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/danstevis.otf",
+      "sha1": "f60e9964329ec70ae98740cfc73fc4f65c4f3cce"
+    },
+    {
+      "path": "src/assets/fonts/nazanin.ttf",
+      "sha1": "1bc1986667e2878d16b62284454f3de7dbf373b6"
+    },
+    {
+      "path": "src/assets/fonts/negar.otf",
+      "sha1": "d8c286987d598e0b2acb2e4ecddea94236b928ff"
+    }
+  ]
+}
