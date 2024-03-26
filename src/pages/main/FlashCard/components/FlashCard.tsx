@@ -14,6 +14,7 @@ import {PanGestureHandler} from 'react-native-gesture-handler';
 import {TouchableOpacity} from 'react-native';
 import VolumeIcon from '../../../../components/icon/VolumeIcon';
 import LightIcon from '../../../../components/icon/LightIcon';
+import RotateIcon from '../../../../components/icon/RotateIcon';
 interface IFlashCardProps {
   item: {
     word: string;
@@ -68,50 +69,51 @@ const FlashCard: React.FC<IFlashCardProps> = ({item}) => {
     [rotationCard],
   );
   return (
-    <Pressable onPress={startRotationAnimation}>
+    <Animated.View
+      style={[
+        rotatingBoxStyle,
+        {
+          height: height / 2,
+
+          borderRadius: 20,
+          width: width / 1.2,
+          alignSelf: 'center',
+        },
+      ]}>
       <Animated.View
         style={[
-          rotatingBoxStyle,
+          rotatingContentStyle,
           {
-            height: height / 2,
-
+            flex: 1,
+            //   alignItems: 'center',
+            //   justifyContent: 'center',
             borderRadius: 20,
-            width: width / 1.2,
-            alignSelf: 'center',
+            backgroundColor: '#6740F6',
+            padding: 10,
           },
         ]}>
-        <Animated.View
-          style={[
-            rotatingContentStyle,
-            {
-              flex: 1,
-              //   alignItems: 'center',
-              //   justifyContent: 'center',
-              borderRadius: 20,
-              backgroundColor: '#6740F6',
-              padding: 10,
-            },
-          ]}>
-          <View flex={1} alignItems="center" justifyContent="center">
-            <Heading>{word}</Heading>
-          </View>
-          <View
-            flex={0.15}
-            alignSelf="center"
-            flexDirection="row"
-            justifyContent="space-between"
-            alignItems="center"
-            w={'40%'}>
-            <Pressable>
-              <VolumeIcon color="gray" size={32} />
-            </Pressable>
-            <Pressable>
-              <LightIcon />
-            </Pressable>
-          </View>
-        </Animated.View>
+        <View flex={1} alignItems="center" justifyContent="center">
+          <Heading>{word}</Heading>
+        </View>
+        <View
+          flex={0.15}
+          alignSelf="center"
+          flexDirection="row"
+          justifyContent="space-between"
+          alignItems="center"
+          w={'60%'}>
+          <Pressable>
+            <VolumeIcon color="gray" size={32} />
+          </Pressable>
+          <Pressable onPress={startRotationAnimation}>
+            <RotateIcon size={32} color="gray" />
+          </Pressable>
+          <Pressable>
+            <LightIcon />
+          </Pressable>
+        </View>
       </Animated.View>
-    </Pressable>
+    </Animated.View>
   );
 };
 

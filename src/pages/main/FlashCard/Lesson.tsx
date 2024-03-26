@@ -9,6 +9,7 @@ import SecondaryBtn from '../../../components/button/SecondaryBtn';
 import FlashCardList from './components/FlashCardList';
 
 const Lesson = ({navigation}: HomeScreenProps) => {
+  const [index, setIndex] = React.useState(0);
   const words = [
     {
       id: 0,
@@ -67,10 +68,15 @@ const Lesson = ({navigation}: HomeScreenProps) => {
         barColor="$skyblue"
         iconColor="white"
         navigation={navigation}
-        progress={50}
+        progress={(index / words.length) * 100}
       />
       <View justifyContent="center" flex={1}>
-        <FlashCardList data={words} />
+        <FlashCardList
+          progress={progress => {
+            setIndex(progress);
+          }}
+          data={words}
+        />
       </View>
       <View p={'$4'} flex={0.1}>
         <SecondaryBtn

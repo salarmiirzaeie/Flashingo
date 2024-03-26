@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import Carousel from 'react-native-reanimated-carousel';
 import {height, width} from '../../../../config/consts';
 import FlashCard from './FlashCard';
@@ -11,8 +11,9 @@ interface FlashCardDataType {
 }
 interface IFlashCardListProps {
   data: FlashCardDataType[];
+  progress: (progress: number) => void;
 }
-const FlashCardList: React.FC<IFlashCardListProps> = ({data}) => {
+const FlashCardList: React.FC<IFlashCardListProps> = ({data, progress}) => {
   return (
     <Carousel
       style={{
@@ -25,7 +26,6 @@ const FlashCardList: React.FC<IFlashCardListProps> = ({data}) => {
       width={width}
       height={height / 1.5}
       pagingEnabled={true}
-      snapEnabled={true}
       mode={'vertical-stack'}
       loop={false}
       autoPlay={false}
@@ -34,6 +34,13 @@ const FlashCardList: React.FC<IFlashCardListProps> = ({data}) => {
       modeConfig={{
         snapDirection: 'right',
         stackInterval: 20,
+      }}
+      onSnapToItem={index => {
+        progress(data.length - index);
+        data.shift();
+      }}
+      onProgressChange={event => {
+        console.log(event);
       }}
       defaultIndex={data.length - 1}
       renderItem={({item}) => <FlashCard item={item} />}
