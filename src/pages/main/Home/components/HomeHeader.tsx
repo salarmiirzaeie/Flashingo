@@ -17,8 +17,8 @@ const HomeHeader = () => {
       borderBottomColor="$border"
       borderBottomWidth={'$1'}>
       <FlagImg name="us" />
-      <FireIcon />
-      <DiamondIcon />
+      {/* <FireIcon />
+      <DiamondIcon /> */}
       <Image
         w={40}
         h={40}

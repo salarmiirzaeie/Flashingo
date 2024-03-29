@@ -12,6 +12,8 @@ import Icon from '../../components/icon/Icon';
 import ProfileIcon from '../../components/icon/ProfileIcon';
 import BarIcon from '../../components/icon/BarIcon';
 import Bar from '../../pages/main/Bar/Bar';
+import SettingsIcon from '../../components/icon/SettingsIcon';
+import Settings from '../../pages/main/Settings/Settings';
 const Tab = createBottomTabNavigator<tabNavigationParamList>();
 
 const TabNavigation = () => {
@@ -30,27 +32,26 @@ const TabNavigation = () => {
         name="Home"
         component={Home}
       />
-      <Tab.Screen
+      {/* <Tab.Screen
         options={{
           headerShown: true,
           tabBarIcon: ({focused, color}) => (
-            // <Ionicons name="home" color={focused ? '#00f' : '#458'} size={25} />
             <BarIcon />
           ),
         }}
         name="Bar"
         component={Bar}
-      />
+      /> */}
       <Tab.Screen
         options={{
           headerShown: false,
           tabBarIcon: ({focused, color}) => (
             // <Ionicons name="home" color={focused ? '#00f' : '#458'} size={25} />
-            <ProfileIcon />
+            <SettingsIcon />
           ),
         }}
-        name="Profile"
-        component={Profile}
+        name="Settings"
+        component={Settings}
       />
     </Tab.Navigator>
   );

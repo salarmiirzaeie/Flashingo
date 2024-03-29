@@ -12,8 +12,8 @@ interface Props {
   children: React.ReactNode;
 }
 const MainProvider: React.FC<Props> = ({children}) => {
-  Tts.setDefaultLanguage('de-DE');
-  Tts.setDefaultRate(0.5);
+  Tts.setDefaultLanguage('en-US');
+  Tts.setDefaultRate(0.25);
   return (
     <GluestackUIProvider config={config}>
       <Provider store={store}>

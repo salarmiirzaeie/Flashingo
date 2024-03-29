@@ -15,11 +15,13 @@ import {TouchableOpacity} from 'react-native';
 import VolumeIcon from '../../../../components/icon/VolumeIcon';
 import LightIcon from '../../../../components/icon/LightIcon';
 import RotateIcon from '../../../../components/icon/RotateIcon';
+import Tts from 'react-native-tts';
 interface IFlashCardProps {
   item: {
     word: string;
     translate: string;
     pronunciation: string;
+    example: string;
   };
 }
 const FlashCard: React.FC<IFlashCardProps> = ({item}) => {
@@ -27,6 +29,7 @@ const FlashCard: React.FC<IFlashCardProps> = ({item}) => {
   const rotationContent = useSharedValue(0);
   const bgContent = useSharedValue('#fff');
   const [word, setWord] = useState(item.word);
+  const [showExample, setShowExample] = useState(false);
   const startRotationAnimation = () => {
     rotationCard.value = withTiming(rotationCard.value === 0 ? 180 : 0, {
       duration: 500,
@@ -68,6 +71,9 @@ const FlashCard: React.FC<IFlashCardProps> = ({item}) => {
     },
     [rotationCard],
   );
+  const speak = () => {
+    Tts.speak(item.word);
+  };
   return (
     <Animated.View
       style={[
@@ -92,9 +98,15 @@ const FlashCard: React.FC<IFlashCardProps> = ({item}) => {
             padding: 10,
           },
         ]}>
-        <View flex={1} alignItems="center" justifyContent="center">
-          <Heading>{word}</Heading>
-        </View>
+        {!showExample ? (
+          <View flex={1} alignItems="center" justifyContent="center">
+            <Heading>{word}</Heading>
+          </View>
+        ) : (
+          <View p={'$2'} flex={1}>
+            <Text size="lg">{item.example}</Text>
+          </View>
+        )}
         <View
           flex={0.15}
           alignSelf="center"
@@ -102,13 +114,15 @@ const FlashCard: React.FC<IFlashCardProps> = ({item}) => {
           justifyContent="space-between"
           alignItems="center"
           w={'60%'}>
-          <Pressable>
+          <Pressable $pressed-bg="$gray" onPress={speak}>
             <VolumeIcon color="gray" size={32} />
           </Pressable>
           <Pressable onPress={startRotationAnimation}>
             <RotateIcon size={32} color="gray" />
           </Pressable>
-          <Pressable>
+          <Pressable
+            $pressed-bg="$gray"
+            onPress={() => setShowExample(!showExample)}>
             <LightIcon />
           </Pressable>
         </View>

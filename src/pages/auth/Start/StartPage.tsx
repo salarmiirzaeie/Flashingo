@@ -20,19 +20,19 @@ const StartPage = ({navigation}: authScreenProps) => {
           آسان ترین و مؤثرترین راه برای آموزش زبان
         </Text>
       </View>
-      <View justifyContent="space-between" flex={0.15}>
+      <View justifyContent="flex-end" flex={0.15}>
         <PrimaryBtn
           title="شروع"
           onPress={() => {
             navigation.navigate('SelectLanguage');
           }}
         />
-        <SecondaryBtn
+        {/* <SecondaryBtn
           title="قبلا ثبت نام کرده ام"
           onPress={() => {
             navigation.navigate('SignUp');
           }}
-        />
+        /> */}
       </View>
     </View>
   );

@@ -1,4 +1,4 @@
-import {StatusBar, View} from '@gluestack-ui/themed';
+import {Pressable, StatusBar, View} from '@gluestack-ui/themed';
 import React from 'react';
 import FlashCard from './components/FlashCard';
 import ProgressHeader from '../../auth/components/ProgressHeader';
@@ -7,6 +7,8 @@ import Carousel from 'react-native-reanimated-carousel';
 import {height, width} from '../../../config/consts';
 import SecondaryBtn from '../../../components/button/SecondaryBtn';
 import FlashCardList from './components/FlashCardList';
+import CloseIcon from '../../../components/icon/CloseIcon';
+import CheckIcon from '../../../components/icon/CheckIcon';
 
 const Lesson = ({navigation}: HomeScreenProps) => {
   const [index, setIndex] = React.useState(0);
@@ -62,7 +64,7 @@ const Lesson = ({navigation}: HomeScreenProps) => {
     },
   ];
   return (
-    <View bg={'$info'} flex={1}>
+    <View h={'$full'} pb={'$4'} justifyContent="space-between" bg={'$info'}>
       <StatusBar backgroundColor="$info" />
       <ProgressHeader
         barColor="$skyblue"
@@ -70,20 +72,12 @@ const Lesson = ({navigation}: HomeScreenProps) => {
         navigation={navigation}
         progress={(index / words.length) * 100}
       />
-      <View justifyContent="center" flex={1}>
+      <View justifyContent="center">
         <FlashCardList
           progress={progress => {
             setIndex(progress);
           }}
           data={words}
-        />
-      </View>
-      <View p={'$4'} flex={0.1}>
-        <SecondaryBtn
-          title="VOCAB QUIZ +10 XP"
-          onPress={() => {
-            navigation.goBack();
-          }}
         />
       </View>
     </View>

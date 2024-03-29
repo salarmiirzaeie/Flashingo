@@ -1,5 +1,5 @@
 export type tabNavigationParamList = {
-  Profile: undefined;
+  Settings: undefined;
   Bar: undefined;
   Home: undefined;
 };

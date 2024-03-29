@@ -56,9 +56,9 @@ const SelectLessonTime = ({navigation}: authScreenProps) => {
             disabled={selected === null}
             onPress={() => {
               dispatch(setLessonTime(selected));
-              // dispatch(setIsSettedInitialSteps(true));
+              dispatch(setIsSettedInitialSteps(true));
 
-              navigation.navigate('TimeToCreateProfile');
+              // navigation.navigate('TimeToCreateProfile');
             }}
           />
         </View>

@@ -33,7 +33,7 @@ const ProgressHeader: React.FC<IProgressHeader> = ({
       justifyContent="space-between"
       alignItems="center"
       h={height / 12}>
-      <Pressable onPress={() => navigation.goBack()}>
+      <Pressable px={'$2'} onPress={() => navigation.goBack()}>
         <Icon name="back" color={iconColor ? iconColor : 'grey'} />
       </Pressable>
       <Progress value={progress} bg="$light" w={'85%'} size="md">
